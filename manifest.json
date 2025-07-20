@@ -1,0 +1,34 @@
+{
+  "manifest_version": 3,
+  "name": "Bad‑Words Filter",
+  "version": "1.0",
+  "browser_specific_settings": {
+  "gecko": {
+    "id": "badwordsfilter@noel.com" 
+  }
+},
+  "icons": {
+    "16": "icons/profile.png"
+  },
+  "description": "Detects and censors profanity in-page.",
+  "permissions": [
+    "activeTab",
+    "storage"          
+  ],
+  "host_permissions": ["<all_urls>"],
+    "action": {
+    "default_icon": {
+      "16": "icons/profile.png"
+    },
+
+    "default_title": "Bad‑Words Filter",
+    "default_popup": "popup.html"   
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.bundle.js"],  
+      "run_at": "document_end"
+    }
+  ]
+}
